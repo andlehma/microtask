@@ -1,0 +1,27 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inconsolata, monospace;
+	margin: 0;
+  background-color: #1B2836;
+  color: white;
+}
+
+#mt-main-title {
+	font-weight: 100;
+	margin: 5px 0;
+}
+
+#mt-footer {
+	position: fixed;
+	color: white;
+	font-size: .75rem;
+	bottom: 0;
+	left: 0;
+}
+
+#mt-footer a {
+	color: #42B983;
+}
