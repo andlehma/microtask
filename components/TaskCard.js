@@ -9,7 +9,7 @@ class TaskCard extends React.Component {
 			form: {
 				id: this.props.task.id,
 				title: this.props.task.title,
-				course: this.props.task.course,
+				category: this.props.task.category,
 				due: this.props.task.due,
 			}
 		}
@@ -37,7 +37,7 @@ class TaskCard extends React.Component {
 			<div key={this.props.task.id} className="mt-card">
 				{!this.state.edit ?
 					<div>
-						{this.props.task.course}
+						{this.props.task.category}
 						<br />
 						{this.props.task.title}
 						<br />
@@ -47,8 +47,8 @@ class TaskCard extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<input
 							type="text"
-							name="course"
-							value={this.state.form.course}
+							name="category"
+							value={this.state.form.category}
 							onChange={this.handleChange}></input>
 						<input
 							type="text"

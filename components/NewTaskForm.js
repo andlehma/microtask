@@ -6,7 +6,7 @@ class NewTaskForm extends React.Component {
 		this.state = {
 			form: {
 				title: "",
-				course: "",
+				category: "",
 				due: "",
 			}
 		}
@@ -31,12 +31,12 @@ class NewTaskForm extends React.Component {
 			<div id="new-task-form-container" className="mt-card">
 				<form onSubmit={this.handleSubmit}>
 					<label>
-						Course:
+						Category:
                 <br />
 						<input
 							type="text"
-							value={this.state.form.course}
-							name="course"
+							value={this.state.form.category}
+							name="category"
 							onChange={this.handleChange}>
 						</input>
 					</label>

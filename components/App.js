@@ -5,10 +5,10 @@ import NewTaskForm from './NewTaskForm.js';
 let nextId = 0;
 
 class Task {
-  constructor(id, title, course, due) {
+  constructor(id, title, category, due) {
     this.id = id;
     this.title = title;
-    this.course = course;
+    this.category = category;
     this.due = due;
   }
 }
@@ -58,7 +58,7 @@ class App extends React.Component {
     newTasks.push(new Task(
       nextId++,
       form.title,
-      form.course,
+      form.category,
       form.due));
     newTasks = sortTasks(newTasks);
     this.setState({
