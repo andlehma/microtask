@@ -29,6 +29,7 @@ class App extends React.Component {
 
     this.toggleNewTaskForm = this.toggleNewTaskForm.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.updateTask = this.updateTask.bind(this);
     this.pushTask = this.pushTask.bind(this);
   }
 
@@ -44,9 +45,18 @@ class App extends React.Component {
     this.setState({ tasks: newTasks });
   }
 
+  updateTask(form) {
+    let targetTask = this.state.tasks.find(task => task.id === form.id);
+    let index = this.state.tasks.indexOf(targetTask);
+    let newTasks = [...this.state.tasks];
+    newTasks[index] = form;
+    this.setState({ tasks: newTasks });
+  }
+
   pushTask(form) {
     let newTasks = [...this.state.tasks];
-    newTasks.push(new Task(nextId++,
+    newTasks.push(new Task(
+      nextId++,
       form.title,
       form.course,
       form.due));
@@ -79,7 +89,7 @@ class App extends React.Component {
 
         <div id="mt-task-list">
           {this.state.tasks.map((task) =>
-            <TaskCard key={task.id} task={task} deleteTask={this.deleteTask} />
+            <TaskCard key={task.id} task={task} deleteTask={this.deleteTask} updateTask={this.updateTask} />
           )}
         </div>
       </div>
