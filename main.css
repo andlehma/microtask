@@ -9,6 +9,10 @@ body {
   color: white;
 }
 
+#container {
+	text-align: center;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -42,6 +46,26 @@ button {
 	font-size: 1em;
 	height: 3em;
 	padding: 0 1em;
+}
+
+#new-task-form-container {
+	display: inline-block;
+	text-align: left;
+}
+
+#mt-task-list {
+	text-align: left;
+}
+
+.mt-card {
+	background-color: white;
+	color: black;
+	margin: 1%;
+	padding: 1%;
+	width: 23%;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 1.2em;
 }
 
 #mt-footer {
