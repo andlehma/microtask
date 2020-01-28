@@ -13,6 +13,11 @@ class Task {
   }
 }
 
+function sortTasks(tasks) {
+  tasks.sort((a, b) => (a.due > b.due) ? 1 : -1);
+  return tasks;
+}
+
 class App extends React.Component {
 
   constructor(props) {
@@ -45,6 +50,7 @@ class App extends React.Component {
       form.title,
       form.course,
       form.due));
+    newTasks = sortTasks(newTasks);
     this.setState({
       tasks: newTasks,
       showNewTaskForm: false,
@@ -69,7 +75,7 @@ class App extends React.Component {
         </header>
 
         {this.state.showNewTaskForm ?
-        <NewTaskForm pushTask={this.pushTask} /> : null}
+          <NewTaskForm pushTask={this.pushTask} /> : null}
 
         <div id="mt-task-list">
           {this.state.tasks.map((task) =>
