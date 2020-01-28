@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskCard from './TaskCard';
+import NewTaskForm from './NewTaskForm.js';
 
 let nextId = 0;
 
@@ -19,17 +20,11 @@ class App extends React.Component {
     this.state = {
       tasks: [],
       showNewTaskForm: false,
-      form: {
-        title: "",
-        course: "",
-        due: "",
-      },
     }
 
     this.toggleNewTaskForm = this.toggleNewTaskForm.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.pushTask = this.pushTask.bind(this);
   }
 
   toggleNewTaskForm() {
@@ -44,27 +39,15 @@ class App extends React.Component {
     this.setState({ tasks: newTasks });
   }
 
-  handleChange(e) {
-    let newForm = this.state.form;
-    newForm[e.target.name] = e.target.value;
-    this.setState({ form: newForm });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
+  pushTask(form) {
     let newTasks = [...this.state.tasks];
     newTasks.push(new Task(nextId++,
-      this.state.form.title,
-      this.state.form.course,
-      this.state.form.due));
+      form.title,
+      form.course,
+      form.due));
     this.setState({
       tasks: newTasks,
       showNewTaskForm: false,
-      form: {
-        title: "",
-        course: "",
-        due: "",
-      }
     });
   }
 
@@ -86,45 +69,7 @@ class App extends React.Component {
         </header>
 
         {this.state.showNewTaskForm ?
-          <div id="new-task-form-container" className="mt-card">
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Course:
-                <br />
-                <input
-                type="text"
-                value={this.state.form.course}
-                name="course"
-                onChange={this.handleChange}>
-                </input>
-              </label>
-              <br />
-              <label>
-                Title:
-                <br />
-                <input
-                  type="text"
-                  value={this.state.form.title}
-                  name="title"
-                  onChange={this.handleChange}>
-                </input>
-              </label>
-              <br />
-              <label>
-                Due:
-                <br />
-                <input
-                type="date"
-                value={this.state.form.due}
-                name="due"
-                onChange={this.handleChange}>
-                </input>
-              </label>
-              <br />
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-          : null}
+        <NewTaskForm pushTask={this.pushTask} /> : null}
 
         <div id="mt-task-list">
           {this.state.tasks.map((task) =>

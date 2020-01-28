@@ -3,6 +3,27 @@ import React from 'react';
 class NewTaskForm extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			form: {
+				title: "",
+				course: "",
+				due: "",
+			}
+		}
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(e) {
+		let newForm = this.state.form;
+		newForm[e.target.name] = e.target.value;
+		this.setState({ form: newForm });
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.props.pushTask(this.state.form);
 	}
 
 	render() {
