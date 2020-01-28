@@ -53,6 +53,10 @@ button {
 	text-align: left;
 }
 
+#new-task-form-container input {
+	width: 100%;
+}
+
 #mt-task-list {
 	text-align: left;
 }
