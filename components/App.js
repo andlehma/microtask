@@ -1,4 +1,6 @@
 import React from 'react';
+import TaskCard from './TaskCard';
+
 let nextId = 0;
 
 class Task {
@@ -126,21 +128,7 @@ class App extends React.Component {
 
         <div id="mt-task-list">
           {this.state.tasks.map((task) =>
-            <div key={task.id} className="mt-card">
-              {task.course}
-              <br />
-              {task.title}
-              <br />
-              {task.due}
-              <br />
-              <button className="mt-card-button">edit</button>
-              &nbsp;
-              <button
-                className="mt-card-button"
-                onClick={() => this.deleteTask(task.id)}>
-                delete
-              </button>
-            </div>
+            <TaskCard key={task.id} task={task} deleteTask={this.deleteTask} />
           )}
         </div>
       </div>
