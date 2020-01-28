@@ -13,6 +13,11 @@
   <div id="app-mount-point"></div>
   <p id="mt-footer">Made with ♡ by <a href="http://andrewlehman.me">Andrew Lehman</a> | <a href="https://github.com/andlehma/microtask">Github</a></p>
   <script src="dist/build.js"></script>
+  <script>
+    // navigation prompt
+    window.onbeforeunload = function () {
+      return true;
+    };
+  </script>
 </body>
-
 </html>
