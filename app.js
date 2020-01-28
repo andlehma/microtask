@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './main.css';
 
-ReactDOM.render(
+const appWrapper = document.getElementById("app-mount-point");
+appWrapper ? ReactDOM.render(
   <App />,
-  document.getElementById('app-mount-point')
-);
+  appWrapper) : null;

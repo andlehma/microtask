@@ -9,9 +9,39 @@ body {
   color: white;
 }
 
+header {
+	display: flex;
+	justify-content: space-between;
+}
+
+header div {
+	flex-basis: 33%;
+	text-align: center;
+}
+
+#mt-main-title-container {
+	text-align: left;
+}
+
 #mt-main-title {
 	font-weight: 100;
 	margin: 5px 0;
+}
+
+button {
+	font-family: Inconsolata, monospace;
+	background-color: #42B983;
+	color: white;
+	border-color: #42B983;
+	border-radius: .25em;
+	border-style: solid;
+	cursor: pointer;
+}
+
+.mt-header-button {
+	font-size: 1em;
+	height: 3em;
+	padding: 0 1em;
 }
 
 #mt-footer {
