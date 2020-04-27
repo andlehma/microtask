@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function NewTask(props) {
 	const [form, setForm] = useState(false);
 	const [task, setTask] = useState({
-		category: "",
 		title: "",
+		description: "",
 		due: ""
 	});
 
@@ -14,8 +14,8 @@ function NewTask(props) {
 		e.preventDefault();
 		setForm(false);
 		setTask({
-			category: "",
 			title: "",
+			description: "",
 			due: ""
 		});
 		props.submit(task);
@@ -42,20 +42,20 @@ function NewTask(props) {
 					<p>
 						<input
 							type="text"
-							name="category"
-							placeholder="category"
-							value={task.category}
-							onChange={handleChange} />
-						<br />
-						<input
-							type="text"
 							name="title"
 							placeholder="title"
 							value={task.title}
 							onChange={handleChange} />
 						<br />
+						<input
+							type="text"
+							name="description"
+							placeholder="description"
+							value={task.description}
+							onChange={handleChange} />
+						<br />
 						<label htmlFor="due">Due:
-					<input
+							<input
 								type="date"
 								name="due"
 								value={task.due}

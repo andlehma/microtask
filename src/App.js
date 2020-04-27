@@ -2,23 +2,21 @@ import React, { useState } from "react";
 import TaskCard from './TaskCard';
 import NewTask from './NewTask';
 
-function App(props) {
-
-    // placeholder task
-    let myTask = {
-        title: "test",
-        category: "asfd",
-        due: new Date().toISOString().substring(0, 10)
-    }
+function App() {
 
     const [tasks, setTasks] = useState([
-        myTask,
-        myTask,
-        myTask,
-        myTask,
-        myTask,
-        myTask
+        {
+            title: "delete this task",
+            description: "it's just a placeholder",
+            due: new Date().toISOString().substring(0, 10)
+        },
     ]);
+
+    function sortTasks() {
+        let newTasks = [...tasks];
+        newTasks.sort((a, b) => (a.due > b.due) ? 1 : -1);
+        setTasks(newTasks);
+    }
 
     function deleteTask(i) {
         const newTasks = [...tasks];
@@ -32,11 +30,16 @@ function App(props) {
         setTasks(newTasks);
     }
 
+    function addTask(task) {
+        const newTasks = [...tasks, task];
+        setTasks(newTasks);
+    }
+
     return (
         <>
             <header>
                 <h1>MicroTask</h1>
-                <NewTask submit={(task) => {setTasks([...tasks, task])}} />
+                <NewTask submit={(task) => { addTask(task) }} />
                 <div id="header-placeholder"></div>
             </header>
             <div id="container">
@@ -44,7 +47,8 @@ function App(props) {
                     <TaskCard key={i}
                         task={x}
                         edit={(newTask) => editTask(newTask, i)}
-                        delete={() => deleteTask(i)} />
+                        delete={() => deleteTask(i)}
+                        sort={sortTasks} />
                 )}
             </div>
         </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -13,34 +13,45 @@ function TaskCard(props) {
         props.edit(newTask);
     }
 
+    // currently this runs on initial render, this should be changed
+    useEffect(() => {
+        if (!edit) {
+            props.sort();
+        }
+    }, [edit]);
+
     return (
         <div className="task-card">
             {edit ?
                 <>
                     <input
                         type="text"
-                        name="category"
-                        value={props.task.category}
+                        name="title"
+                        placeholder="title"
+                        value={props.task.title}
                         onChange={handleChange} />
                     <input
                         type="text"
-                        name="title"
-                        value={props.task.title}
+                        name="description"
+                        placeholder="description"
+                        value={props.task.description}
                         onChange={handleChange} />
+                    <label htmlFor="due">Due:
                     <input
                         type="date"
                         name="due"
                         value={props.task.due}
                         onChange={handleChange} />
+                    </label>
                 </> :
-                <div>
-                    {props.task.category}
+                <p>
+                    <strong><u>{props.task.title}</u></strong>
                     <br />
-                    {props.task.title}
+                    {props.task.description}
                     <br />
-                    {props.task.due}
+                    {props.task.due.length > 0 ? "Due:" : null} {props.task.due}
                     <br />
-                </div>}
+                </p>}
             <div className="card-buttons">
                 <button onClick={() => setEdit(!edit)}>
                     <FontAwesomeIcon icon={faEdit} />
@@ -55,8 +66,8 @@ function TaskCard(props) {
 
 TaskCard.propTypes = {
     task: PropTypes.shape({
+        description: PropTypes.string,
         title: PropTypes.string,
-        category: PropTypes.string,
         due: PropTypes.string
     }),
     id: PropTypes.number,
