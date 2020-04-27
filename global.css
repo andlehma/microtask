@@ -1,0 +1,110 @@
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inconsolata, monospace;
+    background-color: #1B2836;
+    color: white;
+}
+
+a {
+    color: rgb(0, 100, 200);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: rgb(0, 80, 160);
+}
+
+label {
+    display: block;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.4em;
+    margin: 0 0 0.5em 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+input:disabled {
+    color: #ccc;
+}
+
+input[type="range"] {
+    height: 0;
+}
+
+button {
+    color: white;
+    background-color: #42B983;
+    outline: none;
+    margin: 0;
+}
+
+button:disabled {
+    color: #999;
+}
+
+button:not(:disabled):active {
+    background-color: #ddd;
+}
+
+button:focus {
+    border-color: #666;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.task-card {
+    text-align: left;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: .5em 1em;
+    width: 200px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.task-card button {
+    margin-right: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+@media all and (max-width: 1024px) {
+    #container {
+        width: 768px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #container {
+        width: 512px;
+    }
+}
+
+@media all and (max-width: 512px) {
+    #container {
+        width: 256px;
+    }
+}
