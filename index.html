@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <link href="main.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-  <title>MicroTask</title>
+    <title>MicroTask</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
 </head>
 
 <body>
-  <div id="app-mount-point"></div>
-  <p id="mt-footer">Made with ♡ by <a href="http://andrewlehman.me">Andrew Lehman</a> | <a href="https://github.com/andlehma/microtask">Github</a></p>
-  <script src="dist/build.js"></script>
-  <script>
-    // navigation prompt
-    window.onbeforeunload = function () {
-      return true;
-    };
-  </script>
+    <div id="root"></div>
+    <script src="src/index.js"></script>
 </body>
+
 </html>
