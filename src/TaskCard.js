@@ -5,36 +5,47 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 function TaskCard(props) {
     const [edit, setEdit] = useState(false);
-    const [task, setTask] = useState(props.task);
 
     function handleChange(e) {
         e.preventDefault();
-        let newTask = Object.assign({}, task);
+        let newTask = { ...props.task }
         newTask[event.target.name] = event.target.value;
-        setTask(newTask);
+        props.edit(newTask);
     }
 
     return (
         <div className="task-card">
             {edit ?
                 <>
-                    <input type="text" name="category" value={task.category} onChange={handleChange} />
-                    <input type="text" name="title" value={task.title} onChange={handleChange} />
-                    <input type="date" name="due" value={task.due} onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="category"
+                        value={props.task.category}
+                        onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="title"
+                        value={props.task.title}
+                        onChange={handleChange} />
+                    <input
+                        type="date"
+                        name="due"
+                        value={props.task.due}
+                        onChange={handleChange} />
                 </> :
                 <div>
-                    {task.category}
+                    {props.task.category}
                     <br />
-                    {task.title}
+                    {props.task.title}
                     <br />
-                    {task.due}
+                    {props.task.due}
                     <br />
                 </div>}
             <div className="card-buttons">
                 <button onClick={() => setEdit(!edit)}>
                     <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <button onClick={() => props.delete(props.id)}>
+                <button onClick={props.delete}>
                     <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
             </div>
