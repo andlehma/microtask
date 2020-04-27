@@ -49,23 +49,70 @@ input[type="range"] {
     height: 0;
 }
 
-button {
+button, input[type=submit] {
     color: white;
     background-color: #42B983;
     outline: none;
     margin: 0;
+    border-radius: 5px;
 }
 
 button:disabled {
     color: #999;
 }
 
-button:not(:disabled):active {
-    background-color: #ddd;
-}
-
 button:focus {
     border-color: #666;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header * {
+    flex-basis: 33%
+}
+
+h1 {
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+#new-task {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#new-task button {
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.new-task-icon {
+    transition: transform .25s;
+}
+
+.close-form {
+    transform: rotate(45deg);
+}
+
+#new-task-form {
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    width: 236px;
+    height: 183px;
+    margin-top: 5px;
+    transition: all .25s;
+    overflow: hidden;
+}
+
+#new-task-form.hide {
+    height: 0;
+    margin: 0;
 }
 
 #container {
@@ -88,7 +135,6 @@ button:focus {
 .task-card button {
     margin-right: 8px;
     font-size: 16px;
-    border-radius: 5px;
 }
 
 @media all and (max-width: 1024px) {
@@ -106,5 +152,17 @@ button:focus {
 @media all and (max-width: 512px) {
     #container {
         width: 256px;
+    }
+
+    header {
+        justify-content: space-around;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    #header-placeholder {
+        display: none;
     }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TaskCard from './TaskCard';
+import NewTask from './NewTask';
 
 function App(props) {
 
@@ -32,14 +33,21 @@ function App(props) {
     }
 
     return (
-        <div id="container">
-            {tasks.map((x, i) =>
-                <TaskCard key={i}
-                    task={x}
-                    edit={(newTask) => editTask(newTask, i)}
-                    delete={() => deleteTask(i)} />
-            )}
-        </div>
+        <>
+            <header>
+                <h1>MicroTask</h1>
+                <NewTask submit={(task) => {setTasks([...tasks, task])}} />
+                <div id="header-placeholder"></div>
+            </header>
+            <div id="container">
+                {tasks.map((x, i) =>
+                    <TaskCard key={i}
+                        task={x}
+                        edit={(newTask) => editTask(newTask, i)}
+                        delete={() => deleteTask(i)} />
+                )}
+            </div>
+        </>
     );
 }
 
