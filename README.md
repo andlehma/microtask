@@ -1,6 +1,13 @@
+![image](https://user-images.githubusercontent.com/26948028/85339858-98d8b380-b4aa-11ea-8b1f-a77fca60ebb5.png)
+
 # microtask
-frontend-only version of my old todo list app: [minitask](https://github.com/andlehma/minitask)
+[andrewlehman.me/microtask](http://andrewlehman.me/microtask)
 
-Because my old todo list app MiniTask is offline and I'm applying for jobs now, I decided to re-write the frontend for my portfolio. I re-wrote it mostly from scratch to refresh myself on React and to make sure the code is something I'd want to show off. Then I re-re-wrote it using React Hooks instead of class components. Please hire me.
+Simple card-based todo list app. Features:
+* Fully responsive design suitable for any device.
+* Sorts tasks by due date.
+* Some slick animations.
 
-see it live at [andrewlehman.me/microtask](http://andrewlehman.me/microtask)
+TODO:
+* More slick animations
+* Save tasks to a cookie or export as JSON
