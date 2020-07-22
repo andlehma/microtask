@@ -11,3 +11,11 @@ Simple card-based todo list app. Features:
 TODO:
 * More slick animations
 * Save tasks to a cookie or export as JSON
+
+# building locally
+```bash
+git clone https://github.com/andlehma/microtask
+cd microtask
+npm install
+npm start
+```
