@@ -11,6 +11,7 @@ Simple card-based todo list app. Features:
 TODO:
 * More slick animations
 * Save tasks to a cookie or export as JSON
+* Make the card height uniform
 
 # building locally
 ```bash
